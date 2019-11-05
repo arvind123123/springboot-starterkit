@@ -1,6 +1,5 @@
-package com.starterkit.springboot.brs.model.bus;
+package com.starterkit.springboot.brs.model.course;
 
-import com.starterkit.springboot.brs.model.user.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,8 +10,6 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.Set;
-
 /**
  * Created by Arpit Khandelwal.
  */
@@ -20,22 +17,18 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @Accessors(chain = true)
-@Document(collection = "agency")
-public class Agency {
+@Document(collection = "bus")
+public class Bus {
     @Id
     private String id;
 
     @Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true)
     private String code;
 
-    @Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true)
-    private String name;
+    private int capacity;
 
-    private String details;
-
-    @DBRef(lazy = true)
-    private User owner;
+    private String make;
 
     @DBRef(lazy = true)
-    private Set<Bus> buses;
+    private Agency agency;
 }

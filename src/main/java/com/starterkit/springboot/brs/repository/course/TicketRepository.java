@@ -1,6 +1,6 @@
-package com.starterkit.springboot.brs.repository.bus;
+package com.starterkit.springboot.brs.repository.course;
 
-import com.starterkit.springboot.brs.model.bus.Ticket;
+import com.starterkit.springboot.brs.model.course.Ticket;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 /**

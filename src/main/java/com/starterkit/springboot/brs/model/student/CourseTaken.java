@@ -1,5 +1,7 @@
-package com.starterkit.springboot.brs.model.bus;
+package com.starterkit.springboot.brs.model.student;
 
+import com.starterkit.springboot.brs.model.course.Course;
+import com.starterkit.springboot.brs.model.trainer.Trainer;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -8,27 +10,19 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.List;
-
-/**
- * Created by Arpit Khandelwal.
- */
 @Getter
 @Setter
 @NoArgsConstructor
 @Accessors(chain = true)
-@Document(collection = "tripschedule")
-public class TripSchedule {
+@Document(collection = "agency")
+public class CourseTaken {
     @Id
     private String id;
-
-    @DBRef
-    private Trip tripDetail;
-
     @DBRef(lazy = true)
-    private List<Ticket> ticketsSold;
+    private Course course;
+    @DBRef(lazy = true)
+    private Student student;
+    @DBRef(lazy = true)
+    private Trainer trainer;
 
-    private String tripDate;
-
-    private int availableSeats;
 }

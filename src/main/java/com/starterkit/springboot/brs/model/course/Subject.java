@@ -1,4 +1,5 @@
-package com.starterkit.springboot.brs.model.bus;
+package com.starterkit.springboot.brs.model.course;
+
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,25 +11,22 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-/**
- * Created by Arpit Khandelwal.
- */
+import java.util.Set;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @Accessors(chain = true)
-@Document(collection = "bus")
-public class Bus {
+@Document(collection = "topic")
+public class Subject {
+
     @Id
     private String id;
 
     @Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true)
-    private String code;
-
-    private int capacity;
-
-    private String make;
+    private String name;
 
     @DBRef(lazy = true)
-    private Agency agency;
+    private Set<Topic> chapters;
+
 }

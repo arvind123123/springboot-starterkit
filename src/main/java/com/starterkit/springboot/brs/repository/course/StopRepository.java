@@ -1,6 +1,6 @@
-package com.starterkit.springboot.brs.repository.bus;
+package com.starterkit.springboot.brs.repository.course;
 
-import com.starterkit.springboot.brs.model.bus.Stop;
+import com.starterkit.springboot.brs.model.course.Stop;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 /**

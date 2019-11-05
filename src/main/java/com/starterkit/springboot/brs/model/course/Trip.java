@@ -1,6 +1,5 @@
-package com.starterkit.springboot.brs.model.bus;
+package com.starterkit.springboot.brs.model.course;
 
-import com.starterkit.springboot.brs.model.user.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,20 +15,25 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Setter
 @NoArgsConstructor
 @Accessors(chain = true)
-@Document(collection = "ticket")
-public class Ticket {
+@Document(collection = "trip")
+public class Trip {
     @Id
     private String id;
 
-    private int seatNumber;
+    private int fare;
 
-    private boolean cancellable;
-
-    private String journeyDate;
+    private int journeyTime;
 
     @DBRef
-    private TripSchedule tripSchedule;
+    private Stop sourceStop;
 
     @DBRef
-    private User passenger;
+    private Stop destStop;
+
+    @DBRef
+    private Bus bus;
+
+    @DBRef
+    private Agency agency;
+
 }

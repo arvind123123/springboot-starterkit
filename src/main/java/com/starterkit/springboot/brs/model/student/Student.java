@@ -1,5 +1,7 @@
-package com.starterkit.springboot.brs.model.bus;
+package com.starterkit.springboot.brs.model.student;
 
+import com.starterkit.springboot.brs.model.course.Course;
+import com.starterkit.springboot.brs.model.user.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -8,32 +10,16 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-/**
- * Created by Arpit Khandelwal.
- */
 @Getter
 @Setter
 @NoArgsConstructor
 @Accessors(chain = true)
-@Document(collection = "trip")
-public class Trip {
+@Document(collection = "agency")
+public class Student {
     @Id
     private String id;
+    @DBRef(lazy = true)
+    private User user;
 
-    private int fare;
-
-    private int journeyTime;
-
-    @DBRef
-    private Stop sourceStop;
-
-    @DBRef
-    private Stop destStop;
-
-    @DBRef
-    private Bus bus;
-
-    @DBRef
-    private Agency agency;
 
 }

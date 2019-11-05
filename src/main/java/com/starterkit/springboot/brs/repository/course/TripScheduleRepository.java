@@ -1,7 +1,7 @@
-package com.starterkit.springboot.brs.repository.bus;
+package com.starterkit.springboot.brs.repository.course;
 
-import com.starterkit.springboot.brs.model.bus.Trip;
-import com.starterkit.springboot.brs.model.bus.TripSchedule;
+import com.starterkit.springboot.brs.model.course.Trip;
+import com.starterkit.springboot.brs.model.course.TripSchedule;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 /**

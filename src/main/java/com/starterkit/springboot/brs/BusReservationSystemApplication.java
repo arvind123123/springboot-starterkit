@@ -1,9 +1,9 @@
 package com.starterkit.springboot.brs;
 
-import com.starterkit.springboot.brs.model.bus.*;
+import com.starterkit.springboot.brs.model.course.*;
 import com.starterkit.springboot.brs.model.user.Role;
 import com.starterkit.springboot.brs.model.user.User;
-import com.starterkit.springboot.brs.repository.bus.*;
+import com.starterkit.springboot.brs.repository.course.*;
 import com.starterkit.springboot.brs.repository.user.RoleRepository;
 import com.starterkit.springboot.brs.repository.user.UserRepository;
 import com.starterkit.springboot.brs.util.DateUtils;
@@ -24,12 +24,27 @@ public class BusReservationSystemApplication {
     }
 
     @Bean
-    CommandLineRunner init(RoleRepository roleRepository, UserRepository userRepository,
+    CommandLineRunner init(TopicRepository topicRepository, SubjectRepository subjectRepository,
+                           CourseRepository courseRepository,
+                           RoleRepository roleRepository, UserRepository userRepository,
                            StopRepository stopRepository, AgencyRepository agencyRepository,
                            BusRepository busRepository, TripRepository tripRepository,
                            TripScheduleRepository tripScheduleRepository) {
         return args -> {
-            //Create Admin and Passenger Roles
+
+            //create a topic
+
+            topicRepository.findByName("");
+
+            //Create Admin and Passenger Role
+            Role studentRole =roleRepository.findByRole("STUDENT");
+            if (studentRole==null){
+                studentRole = new Role();
+                studentRole.setRole("STUDENT");
+                roleRepository.save(studentRole);
+            }
+
+            //Create Admin and Passenger Role
             Role adminRole = roleRepository.findByRole("ADMIN");
             if (adminRole == null) {
                 adminRole = new Role();

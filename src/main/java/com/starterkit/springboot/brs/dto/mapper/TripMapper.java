@@ -1,7 +1,7 @@
 package com.starterkit.springboot.brs.dto.mapper;
 
 import com.starterkit.springboot.brs.dto.model.bus.TripDto;
-import com.starterkit.springboot.brs.model.bus.Trip;
+import com.starterkit.springboot.brs.model.course.Trip;
 
 /**
  * Created by Arpit Khandelwal.

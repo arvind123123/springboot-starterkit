@@ -1,4 +1,4 @@
-package com.starterkit.springboot.brs.model.bus;
+package com.starterkit.springboot.brs.model.course;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
